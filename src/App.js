@@ -38,7 +38,7 @@ function AppContent() {
     }, []);
 
     const fetchBlogs = () => {
-        axios.get('http://3.110.92.7:9080/api/blogs')
+        axios.get('https://3.110.92.7:9080/api/blogs')
             .then(response => {
                 setBlogs(response.data);
             })

@@ -21,7 +21,7 @@ const SignupForm = ({ setUser }) => {
     // }
 
     axios
-      .post("http://3.110.92.7:9080/api/blogs/signup", {
+      .post("https://3.110.92.7:9080/api/blogs/signup", {
         username,
         password,
         email,

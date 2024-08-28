@@ -26,7 +26,7 @@ const BlogForm = ({ addBlog, user }) => {
     const blog = { title, content, author, imageUrl, userId }; // Include the userId
 
     axios
-      .post("http://3.110.92.7:9080/api/blogs/add", blog, {
+      .post("https://3.110.92.7:9080/api/blogs/add", blog, {
         headers: { username: user.username },
       })
       .then((response) => {

@@ -13,7 +13,7 @@ const LoginForm = ({ setUser }) => {
     e.preventDefault();
 
     axios
-      .post("http://3.110.92.7:9080/api/blogs/login", { username, password })
+      .post("https://3.110.92.7:9080/api/blogs/login", { username, password })
       .then((response) => {
         const userData = response.data;
         setUser(userData);

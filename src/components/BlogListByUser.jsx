@@ -14,7 +14,7 @@ const BlogListByUser = ({ blogs }) => {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
-        `http://3.110.92.7:9080/api/blogs/${id}`
+        `https://3.110.92.7:9080/api/blogs/${id}`
       );
 
       if (response.status === 200) {
