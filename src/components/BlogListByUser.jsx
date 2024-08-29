@@ -14,7 +14,12 @@ const BlogListByUser = ({ blogs }) => {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
-        `https://3.110.92.7:9080/api/blogs/${id}`
+        `http://3.110.92.7:9080/api/blogs/${id}`,
+        {
+          headers: {
+            Origin: "https://blogger-ui.vercel.app/",
+          },
+        }
       );
 
       if (response.status === 200) {

@@ -21,12 +21,20 @@ const SignupForm = ({ setUser }) => {
     // }
 
     axios
-      .post("https://3.110.92.7:9080/api/blogs/signup", {
-        username,
-        password,
-        email,
-        // recaptchaToken: recaptchaValue,
-      })
+      .post(
+        "http://3.110.92.7:9080/api/blogs/signup",
+        {
+          username,
+          password,
+          email,
+          // recaptchaToken: recaptchaValue,
+        },
+        {
+          headers: {
+            Origin: "https://blogger-ui.vercel.app/",
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         setUser(response.data);

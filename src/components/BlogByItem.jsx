@@ -24,7 +24,11 @@ const BlogByItem = () => {
     // Fetch all blogs from the API
     const fetchBlogs = () => {
       axios
-        .get("https://3.110.92.7:9080/api/blogs")
+        .get("http://3.110.92.7:9080/api/blogs", {
+          headers: {
+            Origin: "https://blogger-ui.vercel.app/",
+          },
+        })
         .then((response) => {
           setAllBlogs(response.data);
         })

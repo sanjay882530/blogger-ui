@@ -27,18 +27,27 @@ function AppContent() {
     const navigate = useNavigate(); // Now this is inside a Router
 
     useEffect(() => {
-        fetchBlogs();
         const storedUser = JSON.parse(localStorage.getItem('user'));
-        const blogsByUser = JSON.parse(localStorage.getItem('blogsByUser'));
-        console.log("User blog details", blogsByUser);
+        const storedBlogsByUser = JSON.parse(localStorage.getItem('blogsByUser'));
+
         if (storedUser) {
             setUser(storedUser);
-            setBlogsByUsers(blogsByUser);
+            if (storedBlogsByUser) {
+                setBlogsByUsers(storedBlogsByUser);
+            }
         }
+
+        fetchBlogs(storedUser);
     }, []);
 
-    const fetchBlogs = () => {
-        axios.get('https://3.110.92.7:9080/api/blogs')
+    const fetchBlogs = (currentUser) => {
+        if (!currentUser) return;
+
+        axios.get('https://3.110.92.7:9080/api/blogs', {
+            headers: {
+                username: currentUser.username,
+            },
+        })
             .then(response => {
                 setBlogs(response.data);
             })
@@ -64,7 +73,7 @@ function AppContent() {
             <Navbar user={user} handleLogout={handleLogout} />
             <main>
                 <Routes>
-                    <Route path="/" element={<BlogByItem blogs={blogsByUsers}/>} />
+                    <Route path="/" element={<BlogByItem blogs={blogsByUsers} />} />
                     <Route path="/blogs" element={<BlogList blogs={blogs} />} />
                     <Route path="/signup" element={<SignupForm setUser={setUser} />} />
                     <Route path="/signin" element={<LoginForm setUser={setUser} />} />

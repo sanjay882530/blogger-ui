@@ -16,7 +16,12 @@ const BloggerPage = () => {
       const fetchUserBlogs = async () => {
         try {
           const response = await axios.get(
-            `https://3.110.92.7:9080/api/blogs/user/${parsedUser.userId}`
+            `http://3.110.92.7:9080/api/blogs/user/${parsedUser.userId}`,
+            {
+              headers: {
+                Origin: "https://blogger-ui.vercel.app/",
+              },
+            }
           );
           const blogsList = response.data;
           localStorage.setItem("blogsByUser", JSON.stringify(blogsList));

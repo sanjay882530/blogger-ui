@@ -13,7 +13,15 @@ const LoginForm = ({ setUser }) => {
     e.preventDefault();
 
     axios
-      .post("https://3.110.92.7:9080/api/blogs/login", { username, password })
+      .post(
+        "http://3.110.92.7:9080/api/blogs/login",
+        { username, password },
+        {
+          headers: {
+            Origin: "https://blogger-ui.vercel.app/",
+          },
+        }
+      )
       .then((response) => {
         const userData = response.data;
         setUser(userData);
