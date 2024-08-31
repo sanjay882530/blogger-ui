@@ -58,7 +58,7 @@ const BlogListByUser = ({ blogs }) => {
                 >
                   Delete this Blog
                 </button>
-                <Link to="/addBlog" className="btn btn-primary me-2">
+                <Link to="/add" className="btn btn-primary me-2">
                   Add Blog
                 </Link>
                 <Link to="/addEdit" className="btn btn-info me-2">

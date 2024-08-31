@@ -78,7 +78,7 @@ function AppContent() {
                     <Route path="/signup" element={<SignupForm setUser={setUser} />} />
                     <Route path="/signin" element={<LoginForm setUser={setUser} />} />
                     <Route path="/Contact" element={<ContactUs />} />
-                    <Route path="/addBlog" element={<BlogForm addBlog={addBlog} user={user} />} />
+                    <Route path="/add" element={<BlogForm addBlog={addBlog} user={user} />} />
                     <Route path="/userBlogs" element={<BlogListByUser blogs={blogsByUsers} />} />
                     {user && user.role === 'BLOGGER' && (
                         <Route path="/blogger" element={<BloggerPage addBlog={addBlog} user={user} />} />

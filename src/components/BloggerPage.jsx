@@ -45,8 +45,8 @@ const BloggerPage = () => {
       {user ? (
         <>
           <div>
-            <button className="btn btn-secondary">
-              <Link className="nav-link text-white" to="/addBlog">
+            <button className="btn btn-primary">
+              <Link className="nav-link text-white" to="/add  ">
                 Add Blog
               </Link>
             </button>
@@ -59,12 +59,12 @@ const BloggerPage = () => {
             </button>
           </div>
           <div>
-            <button className="btn btn-secondary">
+            <button className="btn btn-danger">
               <Link className="nav-link text-white" to="/userBlogs">
                 Delete Blogs
               </Link>
             </button>
-            <button className="btn btn-secondary">
+            <button className="btn btn-success">
               <Link className="nav-link text-white" to="/editBlogs">
                 Edit Blogs
               </Link>

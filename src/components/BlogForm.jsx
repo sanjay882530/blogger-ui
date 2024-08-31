@@ -24,11 +24,10 @@ const BlogForm = ({ addBlog, user }) => {
     }
 
     const blog = { title, content, author, imageUrl, userId }; // Include the userId
-
+    console.log(blog);
     axios
       .post("http://3.110.92.7:9080/api/blogs/add", blog, {
         headers: {
-          username: user.username,
           Origin: "https://blogger-ui.vercel.app/",
         },
       })
